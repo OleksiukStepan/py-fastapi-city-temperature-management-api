@@ -59,7 +59,10 @@ async def update_city(
 
 
 @router.delete("/cities/{city_id}/", response_model=CitySchema)
-async def delete_city(city_id: int, db: AsyncSession = Depends(get_db)) -> CitySchema:
+async def delete_city(
+    city_id: int,
+    db: AsyncSession = Depends(get_db)
+) -> CitySchema:
     deleted_city = await crud.delete_city(db, city_id)
     if deleted_city is None:
         raise CityNotFoundError()

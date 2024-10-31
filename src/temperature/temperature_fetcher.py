@@ -41,7 +41,10 @@ async def fetch_and_update_temperatures(db: AsyncSession) -> None:
                 )
                 temperature_entries.append(temperature_data)
             else:
-                print(f"Failed to fetch temperature for {city.name}: {response.status_code} - {response.text}")
+                print(
+                    f"Failed to fetch temperature for "
+                    f"{city.name}: {response.status_code} - {response.text}"
+                )
 
         for temperature_data in temperature_entries:
             await create_temperature(db, temperature_data)

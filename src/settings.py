@@ -8,4 +8,5 @@ class Settings(BaseSettings):
         case_sensitive = True
         enf_file = "../.env"
 
+
 settings = Settings()

@@ -12,6 +12,7 @@ async def handle_city_not_found(
         content={"message": exc.message},
     )
 
+
 async def handle_key_not_configured(
     request: Request,
     exc: KeyNotConfigure

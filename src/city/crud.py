@@ -17,7 +17,9 @@ async def get_cities(
 
 
 async def get_city(db: AsyncSession, city_id: int) -> Optional[CityModel]:
-    result = await db.execute(select(CityModel).filter(CityModel.id == city_id))
+    result = await db.execute(
+        select(CityModel).filter(CityModel.id == city_id)
+    )
     return result.scalars().first()
 
 
@@ -32,12 +34,20 @@ async def create_city(db: AsyncSession, city: CityCreate) -> CityModel:
     return db_city
 
 
-async def update_city(db: AsyncSession, city_id: int, city_update: CityUpdate) -> Optional[CityModel]:
-    result = await db.execute(select(CityModel).filter(CityModel.id == city_id))
+async def update_city(
+    db: AsyncSession,
+    city_id: int,
+    city_update: CityUpdate
+) -> Optional[CityModel]:
+    result = await db.execute(
+        select(CityModel).filter(CityModel.id == city_id)
+    )
     db_city = result.scalars().first()
     if db_city:
         db_city.name = city_update.name or db_city.name
-        db_city.additional_info = city_update.additional_info or db_city.additional_info
+        db_city.additional_info = (
+                city_update.additional_info or db_city.additional_info
+        )
         await db.commit()
         await db.refresh(db_city)
 
@@ -45,7 +55,9 @@ async def update_city(db: AsyncSession, city_id: int, city_update: CityUpdate) -
 
 
 async def delete_city(db: AsyncSession, city_id: int) -> Optional[CityModel]:
-    result = await db.execute(select(CityModel).filter(CityModel.id == city_id))
+    result = await db.execute(
+        select(CityModel).filter(CityModel.id == city_id)
+    )
     db_city = result.scalars().first()
     if db_city:
         await db.delete(db_city)
