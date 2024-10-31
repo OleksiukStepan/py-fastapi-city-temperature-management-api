@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 
-from src.database import Base
+from src.db.database import Base
 from src.temperature.models import Temperature
 
 

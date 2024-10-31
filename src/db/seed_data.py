@@ -1,5 +1,5 @@
 from sqlalchemy import text
-from src.database import AsyncSessionLocal
+from src.db.database import AsyncSessionLocal
 from src.city.models import City
 
 

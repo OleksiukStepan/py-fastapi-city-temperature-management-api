@@ -3,7 +3,7 @@ from typing import Dict
 from fastapi import Query
 from sqlalchemy.orm import Session
 
-from src.database import AsyncSessionLocal
+from src.db.database import AsyncSessionLocal
 
 
 async def get_db() -> Session:

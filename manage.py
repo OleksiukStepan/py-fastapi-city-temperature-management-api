@@ -2,7 +2,7 @@
 
 import typer
 import asyncio
-from src.seed_data import seed_data
+from src.db.seed_data import seed_data
 
 app = typer.Typer()
 

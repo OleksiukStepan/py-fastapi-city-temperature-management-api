@@ -13,7 +13,7 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 
 COPY . .
 
-COPY entrypoint.sh /entrypoint.sh
-COPY migration_script.sh /migration_script.sh
+COPY src/scripts/entrypoint.sh /entrypoint.sh
+COPY src/scripts/migration_script.sh /migration_script.sh
 RUN chmod +x /entrypoint.sh
 RUN chmod +x /migration_script.sh

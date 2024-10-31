@@ -6,7 +6,7 @@ class Settings(BaseSettings):
 
     class Config:
         case_sensitive = True
-        enf_file = "../.env"
+        enf_file = "../../.env"
 
 
 settings = Settings()
