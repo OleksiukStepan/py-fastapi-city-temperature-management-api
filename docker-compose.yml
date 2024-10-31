@@ -1,6 +1,6 @@
 services:
   db:
-    image: 'postgres:latest'
+    image: "postgres:latest"
     container_name: postgres_fastapi
     env_file:
       - .env
@@ -8,22 +8,6 @@ services:
       - "5432:5432"
     volumes:
       - mate_fastapi_data:/var/lib/postgresql/data/
-    networks:
-      - fastapi_network
-
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: pgadmin_fastapi
-    ports:
-      - "3333:80"
-    env_file:
-      - .env
-    links:
-      - db:db
-    depends_on:
-      - db
-    volumes:
-      - fastapi_pgadmin_data:/var/lib/pgadmin
     networks:
       - fastapi_network
 
@@ -62,8 +46,6 @@ services:
 
 volumes:
   mate_fastapi_data:
-    driver: local
-  fastapi_pgadmin_data:
     driver: local
 
 networks:
